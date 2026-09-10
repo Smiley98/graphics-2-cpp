@@ -6,8 +6,23 @@ bool CheckHealth(int health, int required_health)
 	return ready;
 }
 
+void AddByValue(int number)
+{
+	number += 5;
+}
+
+void AddByReference(int& number)
+{
+	number += 5;
+}
+
 int main()
 {
+	int a = 10;
+	int b = 10;
+	AddByValue(a);
+	AddByReference(b);
+
 	int warrior_healths[5];
 	warrior_healths[0] = 100;
 	warrior_healths[1] = 69;
