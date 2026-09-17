@@ -32,15 +32,33 @@ void CreatePeople2(std::array<Person, 3>& people)
 
 int main()
 {
-	Person people1[3];
-	std::array<Person, 3> people2;
-	CreatePeople1(people1, 3);
-	CreatePeople2(people2);
+	int numbers[3];
+	numbers[0] = 1;
+	numbers[1] = 2;
+	numbers[2] = 3;
 
-	for (int i = 0; i < 3; i++)
-	{
-		std::cout << people1[i].name << " is " << people1[i].age << " years old" << std::endl;
-		std::cout << people2[i].name << " is " << people2[i].age << " years old" << std::endl;
-	}
+	int x = 1;
+
+	// "x_addr is a pointer to an integer, initialized to the address of x
+	int* x_addr = &x;
+	std::cout << "Value of x: " << x << std::endl;
+	x++; // increment x the way we did in week 1 semester 1
+
+	std::cout << "Value of x: " << *x_addr << std::endl;
+	(*x_addr)++; // "fetch the value stored in x_addr, then increment it (effectively same as line 45)
+
+	std::cout << "Value of x: " << x << std::endl;
+	std::cout << "Address of x: " << x_addr << std::endl;
+
+	//Person people1[3];
+	//std::array<Person, 3> people2;
+	//CreatePeople1(people1, 3);
+	//CreatePeople2(people2);
+	//
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	std::cout << people1[i].name << " is " << people1[i].age << " years old" << std::endl;
+	//	std::cout << people2[i].name << " is " << people2[i].age << " years old" << std::endl;
+	//}
 	return 0;
 }
