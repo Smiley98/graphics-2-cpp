@@ -16,6 +16,16 @@ void AddByReference(int& number)
 	number += 5;
 }
 
+struct Warrior
+{
+	int health;
+};
+
+void SetWarriorHealth(Warrior& warrior, int health)
+{
+	warrior.health = health;
+}
+
 int main()
 {
 	int a = 10;
@@ -23,17 +33,17 @@ int main()
 	AddByValue(a);
 	AddByReference(b);
 
-	int warrior_healths[5];
-	warrior_healths[0] = 100;
-	warrior_healths[1] = 69;
-	warrior_healths[2] = 420;
-	warrior_healths[3] = 42;
-	warrior_healths[4] = -9000;
+	Warrior warriors[5];
+	SetWarriorHealth(warriors[0], 100);
+	SetWarriorHealth(warriors[1], 69);
+	SetWarriorHealth(warriors[2], 420);
+	SetWarriorHealth(warriors[3], 42);
+	SetWarriorHealth(warriors[4], -9000);
 
 	int required_health = 50;
 	for (int i = 0; i < 5; i++)
 	{
-		if (CheckHealth(warrior_healths[i], required_health))
+		if (CheckHealth(warriors[i].health, required_health))
 		{
 			std::cout << "Ready for battle!" << std::endl;
 		}
