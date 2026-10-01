@@ -39,6 +39,17 @@ int main()
 	test.pop_back(); // [3, 4] --> [3]
 	test.pop_back(); // [3] --> []
 
+	// Note that calling pop_back a 4th time will crash our program cause there's nothing left to remove!!!
+	//test.pop_back();
+
+	test.push_back(3);
+	test.push_back(4);
+	test.push_back(5);
+
+	// We can also use insert & erase to add/remove to/from arbitrary indices
+	test.erase(test.begin() + 1);		// [3, 4, 5] --> [3, 5]
+	test.insert(test.begin() + 1, 4);	// [3, 5] --> [3, 4, 5]
+
 	// Measure time difference between fast vs slow using breakpoints
 	std::cout << "Begin!" << std::endl;
 	ExampleFast();
