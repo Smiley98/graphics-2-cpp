@@ -25,6 +25,18 @@ void ExampleFast()
 	numbers.clear();
 }
 
+void push_back(int*& array, int value, int& size, int& capacity)
+{
+	if (size < capacity)
+	{
+		array[size++] = value;
+	}
+	else
+	{
+		// perform reallocation
+	}
+}
+
 int main()
 {
 	// std::vector documentation: https://cplusplus.com/reference/vector/vector/
@@ -55,5 +67,21 @@ int main()
 	ExampleFast();
 	ExampleSlow();
 	std::cout << "End." << std::endl;
+
+	// How vector works internally --> allocate memory for 100 integers
+	int size = 0;
+	int capacity = 100;
+	int* numbers = new int[capacity];
+	push_back(numbers, 3, size, capacity);
+	push_back(numbers, 4, size, capacity);
+	push_back(numbers, 5, size, capacity);
+
+	// vector.clear() sets size to 0
+	size = 0;
+	push_back(numbers, 69, size, capacity);
+
+	// Once vector goes out of scope, its memory is automatically deleted
+	delete[] numbers;
+
 	return 0;
 }
